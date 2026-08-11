@@ -40,3 +40,16 @@ To test an alert, edit `demo_files/important_config.txt`, then run the `check` c
 ## Security note
 
 The `demo_files` directory contains fictional data only. Never upload real passwords, API keys, personal data, or company files to GitHub.
+
+## Industry context
+
+This is a learning project that recreates a basic File Integrity Monitoring (FIM) workflow: establish a trusted hash baseline, scan monitored files later, and alert when a file has changed, appeared, or disappeared.
+
+Professional security teams often use endpoint-security and FIM tools such as **Microsoft Defender for Cloud**, **Tripwire**, or **Wazuh** to monitor many systems centrally. This script is not a replacement for those platforms; it demonstrates the fundamental hashing and comparison method behind file-integrity alerts.
+
+- Microsoft Defender for Cloud provides File Integrity Monitoring for detecting changes to operating-system files, registries, applications, and Linux system files: [Microsoft FIM documentation](https://learn.microsoft.com/en-us/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint).
+- MITRE ATT&CK documents that adversaries may modify files and directories to manipulate or hide activity: [MITRE ATT&CK: File and Directory Permissions Modification](https://attack.mitre.org/techniques/T1222/).
+
+## What I would improve in production
+
+In a real environment, I would protect the baseline from unauthorised changes, monitor carefully selected sensitive paths, record the process and user responsible for a change, send events to a central SIEM, and tune severity rules with the security team.
