@@ -1,5 +1,9 @@
 # File Integrity Monitor
 
+[![CI](https://github.com/hasinosec/file-integrity-monitor/actions/workflows/ci.yml/badge.svg)](https://github.com/hasinosec/file-integrity-monitor/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+
 A Python security-monitoring tool that uses SHA-256 hashes to detect files that have been modified, added, or deleted. Unexpected changes to important configuration files can be a sign of unauthorised activity.
 
 ## Why I built this
@@ -40,6 +44,17 @@ To test an alert, edit `demo_files/important_config.txt`, then run the `check` c
 ## Security note
 
 The `demo_files` directory contains fictional data only. Never upload real passwords, API keys, personal data, or company files to GitHub.
+
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+ruff check .
+pytest -q
+```
+
+The test suite covers baseline creation, a clean check, and modified, new, and
+deleted files with their severity labels. CI runs it on Python 3.10, 3.11, and 3.12.
 
 ## Industry context
 
